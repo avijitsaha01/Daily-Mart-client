@@ -14,7 +14,7 @@ const EditProduct = () => {
         }
 
     useEffect(() => {
-        fetch('http://localhost:5055/products')
+        fetch('https://murmuring-ridge-82088.herokuapp.com/products')
         .then(res => res.json())
         .then(data => setProducts(data))
 
