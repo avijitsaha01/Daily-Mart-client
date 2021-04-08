@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 const EditProduct = () => {
     const [products, setProducts] = useState([])
         const deleteProduct = id =>{
-            fetch(`http://localhost:5055//deleteProduct:${id}`, {
+            fetch(`https://murmuring-ridge-82088.herokuapp.com/deleteProduct:${id}`, {
                 method: 'delete'
             })
             .then(res => res.json())

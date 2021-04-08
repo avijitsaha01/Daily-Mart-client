@@ -19,7 +19,7 @@ const AddProduct = () => {
             productImage: imageUrl
         };
 
-        const url = `http://localhost:5055/addProduct`;
+        const url = `https://murmuring-ridge-82088.herokuapp.com/addProduct`;
 
         console.log(productData)
         fetch(url, {
