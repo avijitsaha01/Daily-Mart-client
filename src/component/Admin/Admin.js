@@ -5,6 +5,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AddProduct from '../AddProduct/AddProduct';
 import EditProduct from '../EditProduct/EditProduct';
+import { Link } from 'react-router-dom';
 
 const Admin = () => {
     const [addEdit, setAddEdit] = useState(true)
@@ -12,7 +13,7 @@ const Admin = () => {
         <div className="wraper">
             <div className="sidebar">
                 <ul>
-                    <h2>Daily Mart</h2>
+                    <h2><Link to="/">Daily Mart</Link></h2>
                     <li><DashboardIcon /> Manage Product</li>
                     <li onClick={()=>setAddEdit(true)}><AddBoxIcon/> Add Product</li>
                     <li onClick={()=>setAddEdit(false)}><EditIcon /> Edit Product</li>
