@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 const AddProduct = () => {
     const massage = () =>{
         let msz = document.getElementById("succcess");
-            msz.innerText = "Successfully Addes";
+            msz.innerText = "Successfully Added";
     }
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [imageUrl, setImageUrl] = useState(null)
@@ -48,7 +48,7 @@ const AddProduct = () => {
 
     return (
         <div>
-        <h2 id="succcess"></h2>
+        <h2 style={{color: 'green'}} id="succcess"></h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="form-group row">
                     <label for="productname" class="col-md-4 col-form-label">Product Name</label>
