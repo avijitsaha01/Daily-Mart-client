@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const EditProduct = () => {
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5055/products')
+        .then(res => res.json())
+        .then(data => setProducts(data))
+
+    }, [])
+
+
     return (
         <div>
             <div className="editProduct">
@@ -15,12 +25,17 @@ const EditProduct = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        {
+                            products.map(products => 
+                            <tr>
                             <td>A</td>
                             <td>V</td>
                             <td>D</td>
-                            <td style={{cursor:"pointer"}}><DeleteIcon/></td>
+                            <td  style={{cursor:"pointer"}}><DeleteIcon/></td>
                         </tr>
+                            )
+                        }
+                        
                     </tbody>
                 </table>
             </div>

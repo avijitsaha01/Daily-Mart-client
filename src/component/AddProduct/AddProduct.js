@@ -1,8 +1,13 @@
+import { AddRounded, AlarmTwoTone } from '@material-ui/icons';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
 const AddProduct = () => {
+    const massage = () =>{
+        let msz = document.getElementById("succcess");
+            msz.innerText = "Successfully Addes";
+    }
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [imageUrl, setImageUrl] = useState(null)
 
@@ -43,6 +48,7 @@ const AddProduct = () => {
 
     return (
         <div>
+        <h2 id="succcess"></h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="form-group row">
                     <label for="productname" class="col-md-4 col-form-label">Product Name</label>
@@ -71,7 +77,7 @@ const AddProduct = () => {
 
                 <div class="form-group row">
                     <div class="col-md-12">
-                    <input type="submit" value="Add Product"/>
+                    <input className="btn btn-primary" onClick={massage} type="submit" value="Add Product"/>
                     </div>
                 </div>
             </form>   
