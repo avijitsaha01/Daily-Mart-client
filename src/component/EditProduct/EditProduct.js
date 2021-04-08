@@ -3,6 +3,15 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 const EditProduct = () => {
     const [products, setProducts] = useState([])
+        const deleteProduct = id =>{
+            fetch(`http://localhost:5055//deleteProduct:${id}`, {
+                method: 'delete'
+            })
+            .then(res => res.json())
+            .then(result =>{
+                console.log("deleted")
+            })
+        }
 
     useEffect(() => {
         fetch('http://localhost:5055/products')
@@ -10,7 +19,6 @@ const EditProduct = () => {
         .then(data => setProducts(data))
 
     }, [])
-
 
     return (
         <div>
@@ -26,12 +34,12 @@ const EditProduct = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map(products => 
+                            products.map(product => 
                             <tr>
-                            <td>A</td>
-                            <td>V</td>
-                            <td>D</td>
-                            <td  style={{cursor:"pointer"}}><DeleteIcon/></td>
+                            <td>{product.productName}</td>
+                            <td>{product.productPrice}</td>
+                            <td>{product.productWeight}</td>
+                            <td onClick={()=>deleteProduct(product._id)} style={{cursor:"pointer"}}><DeleteIcon/></td>
                         </tr>
                             )
                         }
